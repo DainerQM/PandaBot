@@ -5,10 +5,9 @@ intents = discord.Intents.default()
 intents.messages = True
 intents.guilds = True
 intents.members = True  
-TOKEN = "MTMzNTY0MDA0MTU1MjA4OTIzOQ.GmueXG.LM8IjoJcxGDAyb3TLM5oIrqwoFYt3BcleEqxV8"
+TOKEN = "AQUÍ NUESTRO TOKEN"
 
 bot = commands.Bot(command_prefix="!", intents=intents)
-
 
 @bot.event
 async def on_ready():
@@ -32,5 +31,9 @@ async def ping(ctx):
 async def canales(ctx):
     canales = [channel.name for channel in ctx.guild.text_channels]
     await ctx.send(f"📜 Canales donde puedo hablar: {', '.join(canales)}")
+
+@bot.command()
+async def adios(ctx):
+    await ctx.send(f"Nos vemos pronto {ctx.author.mention}!")
 
 bot.run(TOKEN)
